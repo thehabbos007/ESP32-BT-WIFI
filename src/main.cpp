@@ -42,7 +42,7 @@ void setup()
   Serial.println("3- Connect to MyESP32");
   Serial.println("4- Go to CUSTOM CHARACTERISTIC in CUSTOM SERVICE and write something");
   Serial.println("5- See the magic =)");
-  BLEDevice::init("ESP32_kdiba_2");
+  BLEDevice::init("ESP32_kdiba_3");
   BLEServer *pServer = BLEDevice::createServer();
   BLEService *pService = pServer->createService(SERVICE_UUID);
   BLECharacteristic *pCharacteristic = pService->createCharacteristic(
