@@ -21,10 +21,13 @@ const char* server = "api.thingspeak.com";
 WiFiClient client;
 
 void updateThingSpeak(float t) {
-  ThingSpeak.setField(1, t);
-
-  ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
-  Serial.println("Sent to ThingSpeak");
+  if(t > -40.0 && t < 125.0){
+    ThingSpeak.setField(1, t);
+    ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+    Serial.println("Sent to ThingSpeak");
+  }else{
+    Serial.println("Unrealistic value.");
+  }
 }
 
 class TempFromClient: public BLECharacteristicCallbacks
